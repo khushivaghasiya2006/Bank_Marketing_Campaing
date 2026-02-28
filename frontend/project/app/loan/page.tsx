@@ -82,21 +82,15 @@ export default function LoanPage() {
   const [result, setResult] = useState<PredictionResult | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const { name, value } = e.target;
-  //   setFormData((prev) => ({
-  //     ...prev,
-  //     [name]: value,
-  //   }));
-  // };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-  const { name, value } = e.target;
-  setFormData((prev) => ({
-    ...prev,
-    [name]: value,
-  }));
-};
+
 
   const handleSelectChange = (name: string, value: string) => {
     setFormData((prev) => ({
@@ -105,17 +99,12 @@ export default function LoanPage() {
     }));
   };
 
-  // const handleSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-  //   setError(null);
-  //   setResult(null);
-
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
     setResult(null);
+  
 
     try {
       const payload = {
@@ -137,7 +126,7 @@ export default function LoanPage() {
         poutcome: formData.poutcome,
       };
 
-      const response = await fetch(process.env.NEXT_PUBLIC_API_URL + '/loan', {
+      const response = await fetch('https://bank-marketing-api-bi8e.onrender.com/loan', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -544,7 +533,7 @@ export default function LoanPage() {
                             <Progress 
                               value={result.confidence} 
                               className="mt-3 h-2" 
-                              //color={result.confidence > 70 ? 'green' : result.confidence > 40 ? 'yellow' : 'red'}
+                              color={result.confidence > 70 ? 'green' : result.confidence > 40 ? 'yellow' : 'red'}
                             />
                           </CardContent>
                         </Card>
