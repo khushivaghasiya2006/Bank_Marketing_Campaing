@@ -123,7 +123,7 @@ export default function LoanPage() {
         poutcome: formData.poutcome,
       };
 
-      const response = await fetch('http://127.0.0.1:5000/loan', {
+      const response = await fetch('https://bank-marketing-api-bi8e.onrender.com/loan', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
