@@ -95,7 +95,7 @@ model = pickle.load(open("Model/bank_model.pkl", "rb"))
 scaler = pickle.load(open("Model/bank_scaler.pkl", "rb"))
 
 # =========================
-# Feature names (MUST match training order)
+# Feature names (MUST match training order)Everything up-to-date
 # =========================
 FEATURE_NAMES = [
     'Unnamed: 0', 'age', 'marital', 'education', 'default', 'balance', 'housing',
