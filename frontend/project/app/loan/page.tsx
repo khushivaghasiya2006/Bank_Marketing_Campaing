@@ -24,21 +24,15 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
-import { Progress } from '@/components/ui/progress';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 interface FormData {
   age: string;
   job: string;
   marital: string;
   education: string;
-  default: string;
+  // default: string;
+  credit_default: string;
   housing: string;
   loan: string;
   balance: string;
@@ -64,7 +58,8 @@ export default function LoanPage() {
     job: '',
     marital: '',
     education: '',
-    default: '',
+    // default: '',
+    credit_default: '',
     housing: '',
     loan: '',
     balance: '',
@@ -112,7 +107,8 @@ export default function LoanPage() {
         job: formData.job,
         marital: formData.marital,
         education: formData.education,
-        default: formData.default,
+        // default: formData.default,
+        credit_default: formData.credit_default,
         housing: formData.housing,
         loan: formData.loan,
         balance: parseFloat(formData.balance),
@@ -156,7 +152,8 @@ export default function LoanPage() {
       job: '',
       marital: '',
       education: '',
-      default: '',
+      // default: '',
+      credit_default: '',
       housing: '',
       loan: '',
       balance: '',
@@ -228,7 +225,7 @@ export default function LoanPage() {
       ],
     },
     {
-      name: 'default',
+      name: 'credit_default',
       label: 'Credit Default',
       description: 'Has credit in default?',
       type: 'select',
@@ -530,12 +527,7 @@ export default function LoanPage() {
                                 </p>
                               </div>
                             </div>
-                            <Progress 
-                              value={result.confidence} 
-                              className="mt-3 h-2" 
-                              color={result.confidence > 70 ? 'green' : result.confidence > 40 ? 'yellow' : 'red'}
-                            />
-                          </CardContent>
+                            </CardContent>
                         </Card>
 
                         <Card className="border-0 shadow-md bg-white/80 dark:bg-gray-800/80 backdrop-blur">
